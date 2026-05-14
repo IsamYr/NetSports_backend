@@ -16,7 +16,7 @@ class Content(models.Model):
     usuario = models.ForeignKey("Users.Usuario", on_delete=models.CASCADE, related_name="content")
     descripcion = models.TextField(max_length=500, null=True, blank=True, verbose_name="Descripcion")
     archivo = models.FileField(upload_to=user_content_path, null=True, blank=True, verbose_name="Archivo")
-    tipo_archivo = models.CharField(choices=ContentType.choices, default=ContentType.IMAGE)
+    tipo_archivo = models.CharField(max_length=50, choices=ContentType.choices, default=ContentType.IMAGE)
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     fecha_actualizacion = models.DateTimeField(auto_now=True)
 
