@@ -1,0 +1,17 @@
+###Django###
+### VirtualEnv ###
+venv/
+
+### Environments ###
+.env
+
+### Python ###
+__pycache__/
+
+### PyCharm / Webstorm ###
+.idea/
+
+### Angular###
+### Node ###
+node_modules/
+.angular/

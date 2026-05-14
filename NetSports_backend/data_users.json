@@ -1,0 +1,192 @@
+[
+{
+  "model": "Users.usuario",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$122ACHwMGDjof7GwBvRFxK$PBCo5uGfYOGwW0qG3hzE3U4u+DXAjEtEajEjZggCY1M=",
+    "last_login": "2026-05-06T14:47:34.203Z",
+    "email": "isamir@gmail.com",
+    "username": "isamYr",
+    "slug": "64bc410c9bd65192e027e27c83fe5338",
+    "is_active": true,
+    "is_staff": true,
+    "is_superuser": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "Users.usuario",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$iQN29Uo02g4RXgaXxx14aj$LYsGAi0QhoWZ7HyzufTl0OVnw+HjjNVgUNT9QRP5/YE=",
+    "last_login": null,
+    "email": "valencia@gmail.com",
+    "username": "IsaMyr",
+    "slug": "6f75443bedb0b2e1db8771d6d190214a",
+    "is_active": true,
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "Users.usuario",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$kQU5bfUZvvLV0sx7tIg42q$CDpiwDmA/vnRV2gbmSkrBtmtQ7HJkr7/+8CxC51+lVs=",
+    "last_login": null,
+    "email": "lopez@gmail.com",
+    "username": "IZAMyr",
+    "slug": "6350d8378ef6f66b40651ecb3ac20e11",
+    "is_active": false,
+    "is_staff": true,
+    "is_superuser": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "Users.usuario",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$xVumYiS2Mf9UJFbvZqZy6Q$z6QreAVnk8IjA+QeJ1Ov+spzseanbFfy7HlrtZcfXGo=",
+    "last_login": null,
+    "email": "isa@gmail.com",
+    "username": "izamyr_",
+    "slug": "9a0f36b00510f2f7754c0fd6dacc9e64",
+    "is_active": true,
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "Users.usuario",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Ms0LmY1kxkWpecam3Jwy9I$AupqygDHDkAdJhyX5kOZ/UJN7ibPEA7Wjmbzyl9tObc=",
+    "last_login": null,
+    "email": "nose@gmail.com",
+    "username": "nose",
+    "slug": "29e4f96c231e6306457286665c4861fe",
+    "is_active": true,
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "Users.profile",
+  "pk": 1,
+  "fields": {
+    "usuario": 1,
+    "profile_photo": "profile_pics/Foto_CV.png",
+    "biografia": "Biograf�a ejemplo",
+    "visibilidad": true
+  }
+},
+{
+  "model": "Users.profile",
+  "pk": 2,
+  "fields": {
+    "usuario": 2,
+    "profile_photo": "profile_pics/Germongus_felir.png",
+    "biografia": "blablalblbalbal",
+    "visibilidad": false
+  }
+},
+{
+  "model": "Users.profile",
+  "pk": 4,
+  "fields": {
+    "usuario": 5,
+    "profile_photo": "profile_pics/default_profile.png",
+    "biografia": "",
+    "visibilidad": false
+  }
+},
+{
+  "model": "Users.profile",
+  "pk": 5,
+  "fields": {
+    "usuario": 6,
+    "profile_photo": "profile_pics/Yo.png",
+    "biografia": "",
+    "visibilidad": true
+  }
+},
+{
+  "model": "Users.infopersonal",
+  "pk": 1,
+  "fields": {
+    "usuario": 1,
+    "nombre": "Isamir",
+    "apellidos": "Valencia L�pez",
+    "telefono": "123456789",
+    "fecha_nacimiento": "2026-02-18",
+    "altura_cm": 180.0,
+    "peso_kg": 70.0,
+    "fecha_union": "2026-02-18T10:37:23.432Z"
+  }
+},
+{
+  "model": "Users.infopersonal",
+  "pk": 2,
+  "fields": {
+    "usuario": 2,
+    "nombre": "Valencia",
+    "apellidos": "isamir lopez",
+    "telefono": "987654321",
+    "fecha_nacimiento": "2026-02-17",
+    "altura_cm": 810.0,
+    "peso_kg": 7.0,
+    "fecha_union": "2026-02-18T11:18:42.804Z"
+  }
+},
+{
+  "model": "Users.infopersonal",
+  "pk": 5,
+  "fields": {
+    "usuario": 5,
+    "nombre": "lopez",
+    "apellidos": "valencia isamir",
+    "telefono": "879654132",
+    "fecha_nacimiento": "2026-02-16",
+    "altura_cm": null,
+    "peso_kg": null,
+    "fecha_union": "2026-02-18T12:10:31.314Z"
+  }
+},
+{
+  "model": "Users.infopersonal",
+  "pk": 6,
+  "fields": {
+    "usuario": 6,
+    "nombre": "isa",
+    "apellidos": "val",
+    "telefono": "123456789",
+    "fecha_nacimiento": "2008-02-01",
+    "altura_cm": null,
+    "peso_kg": null,
+    "fecha_union": "2026-02-20T22:11:43.124Z"
+  }
+},
+{
+  "model": "Users.infopersonal",
+  "pk": 7,
+  "fields": {
+    "usuario": 7,
+    "nombre": "nose",
+    "apellidos": "puede",
+    "telefono": "123456789",
+    "fecha_nacimiento": "2008-02-14",
+    "altura_cm": null,
+    "peso_kg": null,
+    "fecha_union": "2026-03-05T10:45:34.602Z"
+  }
+}
+]
