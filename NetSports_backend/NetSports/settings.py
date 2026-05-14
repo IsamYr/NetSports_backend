@@ -126,7 +126,7 @@ DATABASES = {
     #     'PORT': DB_PORT,
     # }
     'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+        default=config("DATABASE_URL", ""),
         conn_max_age=600
     )
 }
