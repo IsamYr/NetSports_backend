@@ -27,10 +27,11 @@ if SECRET_KEY == "":
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = config("ALLOWED_HOSTS", default=[])
+    ALLOWED_HOSTS = ['netsports-backend.onrender.com', '.onrender.com']
+    # ALLOWED_HOSTS = config("ALLOWED_HOSTS", default=[])
 
-    if len(ALLOWED_HOSTS) != 0:
-        ALLOWED_HOSTS = ALLOWED_HOSTS.split(',')
+    # if len(ALLOWED_HOSTS) != 0:
+    #     ALLOWED_HOSTS = ALLOWED_HOSTS.split(',')
 
 EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 
