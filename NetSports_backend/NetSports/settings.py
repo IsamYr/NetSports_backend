@@ -32,7 +32,6 @@ else:
 EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 
 # Application definition
-
 INSTALLED_APPS = [
     'corsheaders',
     'django.contrib.admin',
