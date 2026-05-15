@@ -49,6 +49,8 @@ EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 # Application definition
 INSTALLED_APPS = [
     'corsheaders',
+    'cloudinary_storage',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,6 +99,13 @@ REST_FRAMEWORK = {
     # )
 }
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET')
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 ROOT_URLCONF = 'NetSports.urls'
