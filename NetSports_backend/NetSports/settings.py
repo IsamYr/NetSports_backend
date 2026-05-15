@@ -13,9 +13,17 @@ DEBUG = config("DEBUG", default=True, cast=bool)
 NINJA_API_KEY = config("NINJA_API_KEY", "")
 
 # Settings para desplegar (hostear en Render y aceptar peticiones de Vercel)
-CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", "") # <- Cuando despleguemos la app
+raw_cors_origins = config("CORS_ALLOWED_ORIGINS", default="")
+if raw_cors_origins:
+    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in raw_cors_origins.split(",")]
+    CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in raw_cors_origins.split(",")]
+    # CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", "") # <- Cuando despleguemos la app
+    # CSRF_TRUSTED_ORIGINS = config("CORS_ALLOWED_ORIGINS", "") # <- Para que acepte peticiones de nuestro Vercel
+else:
+    CORS_ALLOWED_ORIGINS = []
+    CSRF_TRUSTED_ORIGINS = []
+
 CORS_ALLOW_CREDENTIALS = True
-CSRF_TRUSTED_ORIGINS = config("CORS_ALLOWED_ORIGINS", "")
 
 # Database .env
 DB_NAME = config("DB_NAME", "")
