@@ -4,15 +4,18 @@ from pathlib import Path
 
 import dj_database_url
 from decouple import config
-from django.conf.global_settings import CSRF_TRUSTED_ORIGINS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY", "")
 DEBUG = config("DEBUG", default=True, cast=bool)
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True <- Esto abre el backend a cualquiera
 NINJA_API_KEY = config("NINJA_API_KEY", "")
-# CORS_ALLOWED_ORIGINS = ["https://tu-frontend.com"] <- Cuando despleguemos la app
+
+# Settings para desplegar (hostear en Render y aceptar peticiones de Vercel)
+CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", "").split(",") # <- Cuando despleguemos la app
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = config("CORS_ALLOWED_ORIGINS", "").split(",")
 
 # Database .env
 DB_NAME = config("DB_NAME", "")
@@ -86,9 +89,7 @@ REST_FRAMEWORK = {
     # )
 }
 
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://fronted.vercel.app"
-# ]
+
 
 ROOT_URLCONF = 'NetSports.urls'
 
