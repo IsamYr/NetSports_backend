@@ -48,8 +48,8 @@ EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 
 # Application definition
 INSTALLED_APPS = [
-    'corsheaders',
     'cloudinary_storage',
+    'corsheaders',
     'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,6 +68,19 @@ INSTALLED_APPS = [
     'Social',
     'Nutrition',
 ]
+
+# Almacenamiento de media y statics en Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "cloudinary_storage.storage.StaticHashedCloudinaryStorage",
+    }
+}
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
@@ -104,9 +117,6 @@ CLOUDINARY_STORAGE = {
     'API_KEY': config('CLOUDINARY_API_KEY'),
     'API_SECRET': config('CLOUDINARY_API_SECRET')
 }
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 
 ROOT_URLCONF = 'NetSports.urls'
 
