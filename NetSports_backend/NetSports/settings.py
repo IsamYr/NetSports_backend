@@ -80,7 +80,7 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "cloudinary_storage.storage.StaticHashedCloudinaryStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     }
 }
 
@@ -95,9 +95,9 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -198,8 +198,12 @@ ASSETS_DIR = BASE_DIR / 'assets'
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [ASSETS_DIR / 'static']
-STATIC_ROOT = ASSETS_DIR / 'collected_static'
+# STATICFILES_DIRS = [ASSETS_DIR / 'static']
+# STATIC_ROOT = ASSETS_DIR / 'collected_static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = []
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = ASSETS_DIR / 'media'
