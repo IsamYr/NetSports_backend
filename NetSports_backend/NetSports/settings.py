@@ -73,7 +73,7 @@ INSTALLED_APPS = [
 # # Almacenamiento de media y statics en Cloudinary
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 STORAGES = {
     "default": {
@@ -83,6 +83,8 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.StaticFilesStorage",
     }
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 WHITENOISE_MANIFEST_STRICT = False
 
