@@ -48,6 +48,7 @@ EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',
     'cloudinary_storage',
     'corsheaders',
     'cloudinary',
@@ -71,7 +72,8 @@ INSTALLED_APPS = [
 
 # Almacenamiento de media y statics en Cloudinary
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STORAGES = {
     "default": {
@@ -95,6 +97,7 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -179,6 +182,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
+
+DEFAULT_CHARSET = 'utf-8'
 
 LANGUAGE_CODE = 'es-ES'
 
