@@ -48,7 +48,6 @@ EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 
 # Application definition
 INSTALLED_APPS = [
-    'jazzmin',
     'cloudinary_storage',
     'corsheaders',
     'cloudinary',
@@ -69,24 +68,19 @@ INSTALLED_APPS = [
     'Social',
     'Nutrition',
 ]
-#
-# # Almacenamiento de media y statics en Cloudinary
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
+# Almacenamiento de media y statics en Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.StaticFilesStorage",
+        "BACKEND": "cloudinary_storage.storage.StaticHashedCloudinaryStorage",
     }
 }
-
-STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
-
-WHITENOISE_MANIFEST_STRICT = False
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
@@ -99,9 +93,8 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -202,12 +195,8 @@ ASSETS_DIR = BASE_DIR / 'assets'
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [ASSETS_DIR / 'static']
-# STATIC_ROOT = ASSETS_DIR / 'collected_static'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = []
-
+STATICFILES_DIRS = [ASSETS_DIR / 'static']
+STATIC_ROOT = ASSETS_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = ASSETS_DIR / 'media'
